@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Appointments{% endblock title %}
+
+{% block content %}
+    <table class="table table-dark" style="margin-top: 100px">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Message</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+
+    <tbody>
+    {% if appointments %}
+
+    {% for appointment in appointments %}
+    <tr>
+        <td>{{ appointment.name }}</td>
+        <td>{{ appointment.email }}</td>
+        <td>{{ appointment.phone }}</td>
+        <td>{{ appointment.message }}</td>
+        <td>{{ appointment.date }}</td>
+        <td><a href="{% url 'myapp:delete_appointments' appointment.id %}" class="btn btn-danger">Delete</a>
+        </td>
+         <td><a href="{% url 'myapp:edit_appointments' appointment.id %}" class="btn btn-primary">Edit</a></td>  
+        <td><a href="" class="btn btn-success">Pay</a></td>  
+    {% endfor %}
+    {% else %}
+    <tr>
+        <td colspan="6" class="text-center">No appointments found.</td>
+    </tr>
+    {% endif %}
+    </tbody>
+
+    </table>
+
+{% endblock content %}

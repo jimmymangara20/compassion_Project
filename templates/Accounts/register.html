@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Registration{% endblock title %}
+
+{% block content %}
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li style="color: {% if message.tags == 'error' %}red{% else %}green{% endif %};">
+                    {{ message }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <!------ Include the above in your HEAD tag ---------->
+
+    <div class="container">
+        <div class="row">
+            <div class="form-box">
+                <h1>Form <span>Registration</span></h1>
+                <form method="post">
+                    {% csrf_token %}
+                    <!-- name field -->
+                    <div class="form-group">
+                        <div id="nameError" class="alert" role="alert"></div>
+                        <label for="form-name-field" class="sr-only">Username</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                            <input type="text" name="username" class="form-control" id="form-name-field" value=""
+                                   placeholder="Username">
+                        </div>
+                    </div>
+{#                    <!--First name-->#}
+{#                     <div class="form-group">#}
+{#                        <div id="nameError" class="alert" role="alert"></div>#}
+{#                        <label for="form-name-field" class="sr-only">First Name</label>#}
+{#                        <div class="input-group">#}
+{#                            <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>#}
+{#                            <input type="text" name="first_name" class="form-control" id="form-name-field" value=""#}
+{#                                   placeholder="First Name">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <!-- Second Name -->#}
+{#                    <div class="form-group">#}
+{#                        <div id="secondName" class="alert" role="alert"></div>#}
+{#                        <label for="form-email-field" class="sr-only">Second Name</label>#}
+{#                        <div class="input-group">#}
+{#                            <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>#}
+{#                            <input type="text" class="form-control" name="second_name" id="form-email-field" value=""#}
+{#                                   placeholder="Second Name">#}
+{#                        </div>#}
+{#                    </div>#}
+                    <div class="form-group">
+                        <div id="emailError" class="alert" role="alert"></div>
+                        <label for="form-email-field" class="sr-only">Email</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
+                            <input type="email" class="form-control" name="email" id="form-email-field" value=""
+                                   placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div id="password" class="alert" role="alert"></div>
+                        <label for="form-password-field" class="sr-only">Password</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+                            <input type="password" class="form-control" name="password" id="form-password-field"
+                                   value="" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div id="password" class="alert" role="alert"></div>
+                        <label for="form-password-field" class="sr-only">Confirm Password</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+                            <input type="password" class="form-control" name="confirm_password"
+                                   id="form-password-field" value="" placeholder="Confirm Password">
+                        </div>
+                    </div>
+
+
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> I agree to terms and condition.
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

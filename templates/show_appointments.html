@@ -26,7 +26,7 @@
         <td><a href="{% url 'myapp:delete_appointments' appointment.id %}" class="btn btn-danger">Delete</a>
         </td>
          <td><a href="{% url 'myapp:edit_appointments' appointment.id %}" class="btn btn-primary">Edit</a></td>  
-        <td><a href="" class="btn btn-success">Pay</a></td>  
+        <td><a href="{% url 'myapp:pay' %}" class="btn btn-success">Pay</a></td>  
     {% endfor %}
     {% else %}
     <tr>

@@ -23,5 +23,10 @@ urlpatterns = [
     path('spon/delete/<int:id>',views.delete_sponsorship,name='delete_sponsorship'),
     path('spo/edit/<int:sponsor_id>',views.edit_sponsorship,name='edit_sponsorship'),
     path('upload/',views.upload_image,name='upload_image'),
+    path('pay/',views.pay,name='pay'), #View the payment form
+    path('stk/',views.stk,name='stk'), #Send the stk push promp
+    path('token/',views.token,name='token'), #Generate the token for that particular transaction
+
+
 
 ]
